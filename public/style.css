@@ -1,0 +1,299 @@
+html{
+    --bgcolor: #191d28;
+    --font-family: Oswald,sans-serif;
+    --color: #fff;
+    --table_row_bgcolor: #2e3241;
+    --light_grey: rgb(148, 143, 143);
+    --lighter_grey: rgb(211, 206, 206);
+    --blue: rgb(0, 153, 255);
+    
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    max-width: 100%;
+    box-sizing: border-box;
+    background-color: var(--bgcolor);
+    color: var(--color);
+    font-family: var(--font-family);
+}
+
+a{
+    text-decoration: none;
+}
+
+button{
+    outline: none;
+    border: none;
+    background-color: white;
+    color: black;
+    margin: 1em 0.5em 0 0.5em;
+    padding: 0.5em;
+    background-color: beige;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+button#connect_telegram{
+    background-color: var(--blue);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+button#connect_telegram:focus{
+    border: none;
+}
+
+/* developing the dropdown functionality */
+div.dropdown{
+    position: relative;
+}
+
+div.dropdown .links a{
+    display: block;
+    background-color: #fff;
+    height: 2rem;
+    width: 4rem;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+div.dropdown .links a:hover{
+    background-color: var(--lighter_grey);
+}
+div.dropdown .links{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 3.5px;
+    font-weight: normal;
+    z-index: 2;
+}
+
+
+div.dropdown button.inr:focus~div.links{
+    display: block;
+}
+
+div.dropdown button.btc:focus~div.links{
+    display: block;
+}
+
+.telegram-logo{
+    margin: 0 7.5px 0 4px;
+}
+
+img{
+    height: auto;
+}
+
+
+
+header,footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Stying footer */
+header{
+    height: 17.5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2.5em;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+header h4{
+    margin-left: 10px;
+    /* font-weight: normal; */
+    color: var(--light_grey);
+}
+
+header h4 a{
+    color: aqua;
+}
+
+header .center button{
+    background-color: var(--table_row_bgcolor);
+    transition: background-color 0.5s ;
+    padding: 10px 20px;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+header .center button:not(:last-child)::after{
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+header .center button:focus{
+    color: #191d28;
+    background-color:  var(--lighter_grey);
+}
+
+
+
+div.image{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0.75em;
+}
+
+
+/* Styling table */
+section#table{
+    display: flex;
+    justify-content: center;
+    /* font-size: 1rem; */
+    font-weight: 400;
+    line-height: 1.5;
+    width: 100%;
+    font-weight: bold;
+    overflow-x: auto;
+    padding: 0 auto;
+}
+
+table{
+    width: 100%;
+    /* border-collapse: collapse; */
+    border-spacing: 0;
+    overflow-x: auto;
+}
+
+table tr{
+    margin: 1em;
+    display: flex;
+    justify-content: stretch;
+    /* width: 100%; */
+}
+
+table tr.table_body{
+    background-color: var(--table_row_bgcolor);
+    border-radius: 10px;
+}
+
+table tr.table_body td{
+    background-color: var(--table_row_bgcolor);
+}
+
+table tr th{
+    color: var(--font-color);
+}
+
+section#table table th,td{
+    padding: 0;
+    display: inline-block;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    align-items: center;
+    margin: 0 20px;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+/* Styling footer */
+footer{
+    border-top: 1px white solid;
+    color: var(--light_grey);
+    margin-top: 1.5em;
+}
+
+footer p{
+    display: inline-block;
+    margin: 0.3em 0.8em;
+    color: var(--light_grey);
+}
+
+footer div.left_corner a{
+    color: aqua;
+    display: inline;
+}
+
+footer a{
+    margin: 0.3em 0.8em;
+    text-align: center;
+    display: block;
+    color: var(--light_grey);
+}
+
+
+/* Styling of dark/light theme toggle */
+
+header .right_corner{
+    display: flex;
+    justify-content: center;
+}
+
+header .right_corner #connect_telegram+div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    margin-left: 16px;
+}
+
+body.dark {
+	background: #292C35;
+}
+
+.checkbox {
+	opacity: 0;
+	position: absolute;
+}
+
+.label {
+	background-color: #111;
+	border-radius: 50px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px;
+	position: relative;
+	height: 26px;
+	width: 50px;
+	transform: scale(1.5);
+}
+
+.label .ball {
+	background-color: #fff;
+	border-radius: 50%;
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	height: 22px;
+	width: 22px;
+	transform: translateX(0px);
+	transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+	transform: translateX(24px);
+}
+
+.light{
+    background-color: whitesmoke;
+    color: black;
+}
+
+

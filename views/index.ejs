@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hodlinfo</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        @media only screen and (max-width:1260px){
+            section#table table th,td{
+                white-space: pre;
+                font-size: 1.25rem;
+                font-weight: 700;
+            }
+        }
+        @media only screen and (max-width:940px){
+            section#table table{
+                white-space: normal;
+            }
+            button#connect-telegram{
+                font-weight: bold;
+                font-size: 0.7rem;
+            }
+
+            header .center{
+                display: flex;
+                flex-direction: column;
+                padding-top: 4em;
+            }
+
+            header{
+                margin-bottom: 5em;
+            }
+        }
+        
+        @media only screen and (max-width:840px){
+            section#table table th,td{
+                font-size: 1.1rem;
+                white-space: pre;
+                font-weight: 700;
+            }
+        }
+
+        @media only screen and (max-width:750px){
+
+            section#table table{
+                width: auto;
+                overflow-x: auto;
+                margin-left: 15px;
+            }
+
+            header{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 15em;
+                height: 25vh;
+            }
+
+            header .center{
+                padding: 0;
+            }
+
+
+            section#table{
+                display: flex;
+                flex-direction: row;
+                justify-content: start;
+            }
+        }
+
+        @media only screen and (max-width:380px){
+            header .right_corner{
+                display: flex;
+                flex-direction: column;
+            }
+
+            header{
+                margin-bottom: 18em;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="left_corner">
+            <h1><img src="hodlinfo.png" alt=""></h1>
+            <h4>Powered By <a href="https://www.finstreet.in/">Finstreet</a></h4>
+        </div>
+
+        <div class="center">
+            <div class="dropdown" style="display: inline-block;">
+                <button class="inr">INR</button>
+                <div class="links">
+                    <a href="#" style="border-radius: 7px;">INR</a>
+                </div>
+            </div>
+            <div class="dropdown" style="display: inline-block;">
+                <button class="btc">BTC </button>
+                <div class="links">
+                    <a href="#" style="border-radius: 7px 7px 0 0;">BTC</a>
+                    <a href="#">ETH</a>
+                    <a href="#">USDT</a>
+                    <a href="#">XRP</a>
+                    <a href="#">TRX</a>
+                    <a href="#">DASH</a>
+                    <a href="#">ZEC</a>
+                    <a href="#">XEM</a>
+                    <a href="#">IOST</a>
+                    <a href="#">WIN</a>
+                    <a href="#">BTT</a>
+                    <a href="#" style="border-radius: 0 0 7px 7px;">WRX</a>
+                </div>
+            </div>
+            <button>Buy BTC</button>
+        </div>
+
+        <div class="right_corner">
+            <button id="connect_telegram">
+                <img src="telegram_logo.png" class="telegram-logo" style="height: 1.5rem;" 
+                alt="Telegram Logo Not displayed">
+                <a href="https://hodlinfo.com/connect/telegram" style="background: transparent;">Connect Telegram</a>
+            </button>
+
+            <%# Making of Dark/Light theme toggle%>
+            <div>
+                <input type="checkbox" class="checkbox" id="chk" />
+                <label class="label" for="chk">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                    <div class="ball"></div>
+                </label>
+            </div>
+
+        </div>
+    </header>
+
+    <div class="image">
+        <img src="header_image.png" alt="Header Image">
+    </div>
+
+    <section id="table">
+        <table>
+            <tr>
+                <th style="width: 10%;">#</th>
+                <th style="width: 15%;">Name</th>
+                <th style="width: 25%;">Last Traded Price</th>
+                <th style="width: 25%;">Buy/Sell Price</th>
+                <th style="width: 15%;">Volume</th>
+                <th style="width: 10%;">Base_Unit</th>
+            </tr>
+
+            <% let i=1; %>
+            <% for(let obj in crypto) { %>
+                <% if(i>10)break; %>
+                <tr class="table_body">
+                    <td style="width: 10%;"><%= i %></td>
+                    <td style="width: 15%;"><%= crypto[obj].name %></td>
+                    <td style="width: 25%;" class="align-middle"><%= crypto[obj].last %></td>
+                    <td style="width: 25%;"><%= crypto[obj].buy %> / <%= crypto[obj].sell %></td>
+                    <td style="width: 15%;"><%= crypto[obj].volume %></td>
+                    <td style="width: 10%;"><%= crypto[obj].base_unit %></td>
+                </tr>
+                <% i++; %>
+            <% } %>
+        </table>
+    </section>
+
+    <div class="image">
+        <img src="footer_image.png" alt="Footer Image">
+    </div>
+    <footer>
+        <div class="left_corner">
+            <p>Copyright &copy; 2019</p>
+            <p>Hodlinfo.com</p>
+            <p>Developed By<a href="https://www.quadbtech.com/">QuadBTech</a></p>
+        </div>
+
+        <div class="right_corner">
+            <a href="mailto:support@hodlinfo.com">Support</a>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
